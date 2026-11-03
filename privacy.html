@@ -25,7 +25,7 @@
   <tr><td>글에 올린 사진 (촬영 위치 같은 메타데이터는 지운 뒤 저장)</td><td>글과 함께 표시, 부적절한 사진 자동 검사</td><td>글 또는 계정을 삭제하면 약 하루 안에 삭제. 검사를 통과하지 못한 사진은 바로 삭제</td></tr>
   <tr><td>글에 남긴 노래 제목과 가수</td><td>글과 함께 표시</td><td>글 또는 계정 삭제 시까지</td></tr>
   <tr><td>좋아요, 저장한 글. 좋아요는 개수만 다른 사람에게 보임</td><td>반응 표시, 다시 읽기</td><td>취소, 글 삭제 또는 계정 삭제 시까지</td></tr>
-  <tr><td>함께 잇는 여행 별자리 (함께 잇기를 쓸 때만): 별자리 이름, 별의 장소, 이름, 날짜, 넣은 사람 표시, 초대 코드, 함께하는 사람의 닉네임</td><td>초대한 사람들과 별자리를 함께 만들기. 함께하는 사람에게만 보임</td><td>내가 나가거나 계정을 삭제하면 참여 기록을 지움. 내가 넣은 별은 넣은 사람 표시 없이 남은 사람의 별자리에 남음. 마지막 사람이 나가면 모두 삭제</td></tr>
+  <tr><td>함께 잇는 여행 별자리 (함께 잇기를 쓸 때만): 별자리 이름, 별의 장소, 이름, 날짜와 시각, 일정 순서, 후보 여부, 넣은 사람 표시, 별마다 남긴 메모와 체크 여부, 메모를 쓴 사람 표시, 가고 싶어요 표시, 초대 코드, 함께하는 사람의 닉네임</td><td>초대한 사람들과 별자리를 함께 만들기. 함께하는 사람에게만 보임</td><td>내가 나가거나 계정을 삭제하면 참여 기록을 지움. 내가 넣은 별과 메모는 넣은 사람 표시 없이 남은 사람의 별자리에 남고, 내 가고 싶어요 표시는 지움. 별을 지우면 그 별의 메모와 표시도 지움. 마지막 사람이 나가면 모두 삭제</td></tr>
   <tr><td>글의 번역 결과, 번역과 사진 검사와 초대 코드 입력의 하루 사용 횟수</td><td>재번역 비용 절감, 남용 방지</td><td>번역 결과는 글 삭제 시까지, 사용 횟수는 7일</td></tr>
   <tr><td>닉네임, 팔로우, 차단, 글과 별자리의 신고 기록</td><td>소셜 기능, 안전한 운영</td><td>삭제 또는 계정 삭제 시까지</td></tr>
   <tr><td>알림 토큰과 언어 (알림을 켤 때만)</td><td>팔로우 알림과 함께 잇기 알림 보내기</td><td>알림을 끄거나, 로그아웃 또는 계정을 삭제할 때까지</td></tr>
@@ -38,6 +38,7 @@
 <p>"나만 볼래요"로 남긴 글과 사진은 서버로 보내지 않고 기기에만 저장합니다. 앱을 삭제하면 함께 사라질 수 있습니다. 계정을 삭제해도 이 글은 기기에 남으며, 글 카드에서 직접 지울 수 있습니다.</p>
 <p>Google 타임라인 파일을 가져오면 파일은 기기 안에서만 읽고, 방문한 장소와 시각만 기기에 저장합니다. 파일과 방문 기록은 서버로 보내지 않으며, 집과 직장으로 표시된 곳은 가져오지 않습니다. 내 정보 화면에서 언제든 지울 수 있습니다. 방문 기록으로 글을 공개하면 그 글의 장소와 시각만 공개 글로 저장됩니다.</p>
 <p>여행 별자리는 함께 잇기를 시작하기 전까지 기기에만 저장합니다. 함께 잇기가 끝나면(내가 나가거나, 내보내지거나, 별자리가 사라지면) 그때까지의 별자리 사본이 기기에 남고, 직접 지울 수 있습니다. 신고하고 나가면 사본을 남기지 않습니다.</p>
+<p>함께 잇기를 쓰지 않는 여행 별자리의 메모와 일정도 기기에만 저장합니다. 여행 D-day 알림은 여행 첫날을 기준으로 기기 안에서 예약하고, 알림에는 여행 이름과 장소를 넣지 않습니다. 내 정보의 설정에서 끌 수 있습니다.</p>
 <p>1년 전 오늘 알림을 켜면 내 글의 번호와 날짜로 기기 안에서 알림을 예약합니다. 이 예약은 서버로 보내지 않으며, 알림에는 글 내용과 장소를 넣지 않습니다. 내 정보 화면에서 언제든 끌 수 있습니다.</p>
 
 <h2>3. 위치 정보</h2>
@@ -61,7 +62,7 @@
 <p>광고를 위해 정보를 팔거나 공유하지 않습니다. 법령에 따른 요청이 있으면 제공할 수 있습니다.</p>
 
 <h2>5. 삭제와 권리</h2>
-<p>글은 글 카드에서, 계정은 내 정보 화면에서 삭제할 수 있습니다. 계정을 삭제하면 글, 사진, 닉네임, 좋아요, 저장, 팔로우, 차단, 신고, 앱 사용 기록이 함께 삭제됩니다. 함께 잇던 별자리에서는 나가게 되고, 내가 넣은 별은 넣은 사람 표시 없이 남은 사람의 별자리에 남습니다. 남은 사람이 없으면 별자리도 삭제됩니다. 백업에 남은 정보는 30일 안에 지워집니다. 자세한 방법은 <a href="delete-account.html">계정 삭제 안내</a>를 확인해 주세요. 열람, 정정, 삭제 요청은 위 문의처로 보내 주세요.</p>
+<p>글은 글 카드에서, 계정은 내 정보 화면에서 삭제할 수 있습니다. 계정을 삭제하면 글, 사진, 닉네임, 좋아요, 저장, 팔로우, 차단, 신고, 앱 사용 기록이 함께 삭제됩니다. 함께 잇던 별자리에서는 나가게 되고, 내가 넣은 별과 메모는 넣은 사람 표시 없이 남은 사람의 별자리에 남습니다. 남은 사람이 없으면 별자리도 삭제됩니다. 백업에 남은 정보는 30일 안에 지워집니다. 자세한 방법은 <a href="delete-account.html">계정 삭제 안내</a>를 확인해 주세요. 열람, 정정, 삭제 요청은 위 문의처로 보내 주세요.</p>
 
 <h2>6. 아동</h2>
 <p>만 14세 미만은 이용할 수 없습니다. 만 14세 미만의 정보가 수집된 것을 알게 되면 삭제합니다.</p>
@@ -100,7 +101,7 @@
   <li><strong>Photos on notes (stored after metadata such as location is removed):</strong> to show with the note and to check automatically for harmful images. Deleted about a day after the note or account is deleted. Photos that fail the check are deleted immediately.</li>
   <li><strong>Song title and artist on notes:</strong> to show with the note, until the note or account is deleted.</li>
   <li><strong>Likes and saved notes (others see only the like count):</strong> to show reactions and let you read notes again, until removed or the note or account is deleted.</li>
-  <li><strong>Shared trip constellations (only if you use Connect together):</strong> the constellation name, each star's place, name and date, who added it, the invite code, and the nicknames of the people in it. Shown only to those people. Your membership is removed when you leave or delete your account; stars you added stay in the constellation without your label. Everything is deleted when the last person leaves.</li>
+  <li><strong>Shared trip constellations (only if you use Connect together):</strong> the constellation name, each star's place, name, date and time, its order in the plan, whether it is an idea, who added it, the notes on each star and whether they are checked, who wrote each note, "Want to go" marks, the invite code, and the nicknames of the people in it. Shown only to those people. Your membership is removed when you leave or delete your account; stars and notes you added stay in the constellation without your label, and your "Want to go" marks are removed. Deleting a star deletes its notes and marks. Everything is deleted when the last person leaves.</li>
   <li><strong>Translations and daily counts of translations, photo checks and invite code entries:</strong> to avoid repeat costs and prevent abuse. Translations are kept until the note is deleted, counts for 7 days.</li>
   <li><strong>Nickname, follows, blocks, and reports on notes and constellations:</strong> for social features and safety, until deleted.</li>
   <li><strong>Notification token and language (only if you turn notifications on):</strong> to send follow and shared constellation notifications, until you turn them off, log out or delete your account.</li>
@@ -112,6 +113,7 @@
 <p>Notes and photos marked "Keep it to myself" are not sent to our server and stay on your device. Deleting your account does not remove them; you can delete them from the note card.</p>
 <p>If you import a Google Timeline file, it is read only on your device, and only the places and times you visited are stored there. Neither the file nor your visits are sent to our server, and places labeled home or work are not imported. You can delete them anytime under My page. If you post a note from a visit, only that note's place and time are stored as a public note.</p>
 <p>Trip constellations stay only on your device until you start Connect together. When sharing ends (you leave, you are removed, or the constellation is gone), a copy of the constellation so far stays on your device, and you can delete it yourself. No copy is kept if you report and leave.</p>
+<p>Notes and plans in trip constellations you do not share also stay only on your device. Trip countdown reminders are scheduled on your device from the first day of the trip and do not include the trip name or places. You can turn them off under Settings in My page.</p>
 <p>If you turn on "A year ago today" reminders, they are scheduled on your device from your note IDs and dates. The schedule is not sent to our server, and reminders do not include note text or places. You can turn them off anytime under My page.</p>
 <h2>Location</h2>
 <p>We ask for device location only when you tap "Go to my location", and use it only to move the map. It is not stored on our server. We store the pin you choose, blurred to about 100 m for public notes. Pins on public notes are visible to others, so take care when pinning your home or workplace. Stars in a shared constellation are not blurred and are shown only to the people in it.</p>
@@ -131,7 +133,7 @@
 </ul>
 <p>We do not sell your data or share it for advertising. We may disclose it when legally required.</p>
 <h2>Deletion and your rights</h2>
-<p>Delete notes from the note card and your account under My page. Deleting your account also deletes your notes, photos, nickname, likes, saves, follows, blocks, reports and app usage records. You leave any shared constellations; stars you added stay there without your label, and a constellation with no one left is deleted. Backups are erased within 30 days. See <a href="delete-account.html">how to delete your account</a>. Send access, correction or deletion requests to the contact above.</p>
+<p>Delete notes from the note card and your account under My page. Deleting your account also deletes your notes, photos, nickname, likes, saves, follows, blocks, reports and app usage records. You leave any shared constellations; stars and notes you added stay there without your label, and a constellation with no one left is deleted. Backups are erased within 30 days. See <a href="delete-account.html">how to delete your account</a>. Send access, correction or deletion requests to the contact above.</p>
 <h2>Children</h2>
 <p>The service is not for children under 14. We delete such information if we learn it was collected.</p>
 <h2>Security and changes</h2>
