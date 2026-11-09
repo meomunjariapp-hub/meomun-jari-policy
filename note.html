@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<meta property="og:title" content="머문 자리 · Where We Stayed" />
+<meta property="og:description" content="누군가 그날 그 자리의 하늘에 남긴 별이에요. · A star someone left in the sky of that place and day." />
+<title>머문 자리 · Where We Stayed</title>
+<style>
+  body { max-width: 480px; margin: 0 auto; padding: 48px 20px 64px; font: 16px/1.7 sans-serif; color: #e4e7f7; background: #050816; text-align: center; }
+  h1 { font-size: 24px; color: #fff6e2; margin-bottom: 8px; }
+  .open, .store { display: block; margin: 12px 0; padding: 14px; border-radius: 26px; text-decoration: none; }
+  .open { font-weight: 700; color: #1a1533; background: #ffe2a8; }
+  .store { color: #e4e7f7; border: 1px solid #39406e; }
+  .soon, .gone { color: #aab2d8; font-size: 14px; }
+  hr { margin: 40px 0; border: 0; border-top: 1px solid #232a55; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<section id="ko">
+  <h1>✦ 머문 자리</h1>
+  <p>누군가 그날 그 자리의 하늘에 남긴 별이에요.<br />앱에서 글과 그날의 밤하늘을 볼 수 있어요.</p>
+</section>
+
+<hr id="line" />
+
+<section id="en">
+  <h1>✦ Where We Stayed</h1>
+  <p>Someone left a star in the sky of that place and day.<br />Open the app to read it and see that night's sky.</p>
+</section>
+
+<a class="open" id="open" hidden href="#"><span lang="ko">앱에서 글 보기</span> · <span lang="en">Read in the app</span></a>
+<p class="gone" id="gone" hidden><span lang="ko">링크가 올바르지 않아요.</span> · <span lang="en">This link is not valid.</span></p>
+<a class="store" id="play" href="https://play.google.com/store/apps/details?id=com.meomunjari.app"><span lang="ko">Google Play에서 설치하기</span> · <span lang="en">Get it on Google Play</span></a>
+<a class="store" id="appstore" hidden href="#"><span lang="ko">App Store에서 설치하기</span> · <span lang="en">Download on the App Store</span></a>
+<p class="soon" id="soon" hidden><span lang="ko">App Store 버전은 준비 중이에요.</span> · <span lang="en">The App Store version is coming soon.</span></p>
+
+<script>
+  // App Store Connect에 앱을 등록하면 나오는 숫자 번호를 넣는다. 비어 있으면 아이폰에는 준비 중이라고 안내한다.
+  var APP_STORE_ID = '';
+  var PLAY_URL = 'https://play.google.com/store/apps/details?id=com.meomunjari.app';
+
+  var agent = navigator.userAgent;
+  var isAndroid = /android/i.test(agent);
+  // iPad는 컴퓨터처럼 자신을 알리므로 터치 여부로 구분한다.
+  var isApple = /iphone|ipad|ipod/i.test(agent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+  // 글 id 말고는 주소에서 아무것도 읽지 않는다. 글 내용은 이 페이지에서 불러오지 않고 앱에서만 보여 준다.
+  var id = (new URLSearchParams(location.search).get('id') || '').toLowerCase();
+  if (/^[0-9a-f-]{36}$/.test(id)) {
+    var open = document.getElementById('open');
+    open.href = isAndroid
+      ? 'intent://note?id=' + id + '#Intent;scheme=meomunjari;package=com.meomunjari.app;S.browser_fallback_url=' + encodeURIComponent(PLAY_URL) + ';end'
+      : 'meomunjari://note?id=' + id;
+    // 컴퓨터에는 앱이 없으므로 설치 안내만 보여 준다.
+    open.hidden = !isAndroid && !isApple;
+  } else {
+    document.getElementById('gone').hidden = false;
+  }
+
+  // 보고 있는 기기에 맞는 스토어만 보여 준다. 컴퓨터에서는 둘 다 보여 준다.
+  document.getElementById('play').hidden = isApple;
+  if (APP_STORE_ID) {
+    var store = document.getElementById('appstore');
+    store.href = 'https://apps.apple.com/app/id' + APP_STORE_ID;
+    store.hidden = isAndroid;
+  } else {
+    document.getElementById('soon').hidden = !isApple;
+  }
+
+  // 한국어 사용자에게는 한국어만, 그 밖에는 영어만 보여 준다.
+  var korean = /^ko/i.test(navigator.language || '');
+  document.getElementById(korean ? 'en' : 'ko').hidden = true;
+  document.getElementById('line').hidden = true;
+  document.querySelectorAll('[lang]').forEach(function (part) {
+    if (part.tagName === 'SPAN') part.hidden = part.lang !== (korean ? 'ko' : 'en');
+  });
+  document.querySelectorAll('.open, .store, .soon, .gone').forEach(function (button) {
+    Array.prototype.forEach.call(button.childNodes, function (node) {
+      if (node.nodeType === 3) node.textContent = '';
+    });
+  });
+</script>
+</body>
+</html>
